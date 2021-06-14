@@ -10,3 +10,17 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Mona"
+  sonarQubeTrigger:
+    name: SonarQube Trigger
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@master
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.1.0
+      with:
+        # projectBaseDir: "/path/to/my-custom-project"
+        projectKey: "my-custom-project"
+        projectName: "my-custom-project-name"
+        projectVersion: "v0.0.1"
+        host: "http://localhost:9000"
+        login: "1b101d9553db156f7a64bd33a36a809d66bd9e04"
